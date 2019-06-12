@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.myhome.webservice.domain.PostsRepository;
 import com.myhome.webservice.domain.PostsSaveRequestDto;
+import com.myhome.webservice.service.PostsService;
 
 import lombok.AllArgsConstructor;
 
@@ -14,7 +15,7 @@ import lombok.AllArgsConstructor;
 @AllArgsConstructor//의존성 주입(Autowired생략 가능하게 해줌)
 public class WebRestController {
 	
-	private PostsRepository postsRepository;
+	private PostsService postsService;
 
     @GetMapping("/hello")
     public String hello() {
@@ -22,7 +23,7 @@ public class WebRestController {
     }
     
     @PostMapping("/posts")
-    public void savaPosts(@RequestBody PostsSaveRequestDto dto) {
-    	postsRepository.save(dto.toEntity());
+    public Long savaPosts(@RequestBody PostsSaveRequestDto dto) {
+    	return postsService.save(dto);
     }
 }
