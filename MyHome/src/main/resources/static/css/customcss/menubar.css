@@ -4,6 +4,7 @@
 
 .navbar-inverse .navbar-text {
   color: #000 !important;
+  font-weight: bold !important;
 }
 
 @media (min-width: 768px) {
@@ -13,7 +14,8 @@
 }
 
 .navbar-inverse .navbar-nav > li > a {
-  color: #000;
+  color: #000 !important;
+  font-weight: bold !important;
 }
 
 .navbar-inverse .navbar-nav > li > a:hover,
