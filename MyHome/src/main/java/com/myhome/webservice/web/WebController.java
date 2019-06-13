@@ -25,4 +25,8 @@ public class WebController {
         model.addAttribute("posts", postsService.findAllDesc());
         return "home";
     }
+    @GetMapping("/products")
+    public String products(Model model) {
+    	return "products";
+    }
 }
