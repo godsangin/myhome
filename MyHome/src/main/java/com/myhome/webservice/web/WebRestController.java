@@ -5,8 +5,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.myhome.webservice.domain.PostsRepository;
-import com.myhome.webservice.domain.PostsSaveRequestDto;
+import com.myhome.webservice.domain.post.PostsRepository;
+import com.myhome.webservice.domain.post.PostsSaveRequestDto;
 import com.myhome.webservice.service.PostsService;
 
 import lombok.AllArgsConstructor;

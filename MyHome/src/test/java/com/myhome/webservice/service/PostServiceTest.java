@@ -8,9 +8,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import com.myhome.webservice.domain.Posts;
-import com.myhome.webservice.domain.PostsRepository;
-import com.myhome.webservice.domain.PostsSaveRequestDto;
+import com.myhome.webservice.domain.post.Posts;
+import com.myhome.webservice.domain.post.PostsRepository;
+import com.myhome.webservice.domain.post.PostsSaveRequestDto;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
