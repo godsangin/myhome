@@ -1,0 +1,43 @@
+.nav-side{
+	display:inline-block;
+	color:white;
+	width:20%; 
+}
+
+.li-title{
+	padding:12px;
+}
+
+.li-title:hover{
+	background-color:#999;
+	cursor:pointer;
+}
+
+.container-product{
+	padding:1%;
+	
+}
+.container-detail{
+	width:70%;
+	display:inline-block;
+	padding:20px;
+	margin-left:auto;
+	margin-right:auto;
+	vertical-align:top;
+	height:512px;
+}
+.container-atom{
+	padding:10%;
+}
+.ul-widthfree{
+	width:100%;
+}
+p{
+	text-align:center;
+}
+img{
+	display:block;
+	margin-left:auto;
+	margin-right:auto;
+	margin-bottom:20px;
+}
