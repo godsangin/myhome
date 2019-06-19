@@ -1,24 +1,25 @@
-.navbar-inverse {
+.c-navbar-inverse {
   background-color: #fff !important;
 }
 
-.navbar-inverse .navbar-text {
+.c-navbar-inverse .c-navbar-text {
   color: #000 !important;
   font-weight: bold !important;
 }
 
 @media (min-width: 768px) {
-  .navbar {
+  .c-navbar {
     border-radius: 0px !important;
   }
 }
 
-.navbar-inverse .navbar-nav > li > a {
+.c-navbar-inverse .c-navbar-nav > li > a {
   color: #000 !important;
   font-weight: bold !important;
 }
 
-.navbar-inverse .navbar-nav > li > a:hover,
-.navbar-inverse .navbar-nav > li > a:focus {
+.c-navbar-inverse .c-navbar-nav > li > a:hover,
+.c-navbar-inverse .c-navbar-nav > li > a:focus {
   color: #DDD !important;
 }
+
