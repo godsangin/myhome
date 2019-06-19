@@ -1,0 +1,4 @@
+1. lombok
+2. Spring 4.0
+2-1 error issue : help > install new software > Manage Sites 에서 원하는 것만 체크
+		contact all update 체크 해제

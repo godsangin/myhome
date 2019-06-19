@@ -4,18 +4,11 @@
     <title>스프링부트 웹서비스</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+	<link rel="stylesheet" href="/css/bootstrap.min.css">
     <link rel="stylesheet" href="/css/customcss/product.css">
 </head>
 <body>
-<nav class="navbar navbar-inverse">
-  <ul class="nav navbar-nav pull-right">
-    <li><a href="#">Link1</a></li>
-    <li><a href="#">Link2</a></li>
-    <li><a href="#">Link3</a></li>
-  </ul>
-  <p class="navbar-text">Some text</p>
-</nav>
+{{> common/menubar}}
 
 <div class="container-product">
 <nav class="navbar navbar-inverse nav-side">
@@ -40,6 +33,8 @@
 	</div>
 </div>
 </div>
+
+{{> common/footer}}
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 <script type="text/javascript" src="js/app/products.js"></script>
 </body>
