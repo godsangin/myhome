@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>스프링부트 웹서비스</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="/css/customcss/calendar.css">
+</head>
+<body>
+	<nav class="navbar navbar-inverse">
+		<ul class="nav navbar-nav pull-right">
+			<li><a href="#">Link1</a></li>
+			<li><a href="#">Link2</a></li>
+			<li><a href="#">Link3</a></li>
+		</ul>
+		<p class="navbar-text">Some text</p>
+	</nav>
+	<h1>똥차 Scheduler</h1>
+	<div class="calendar_container">
+		<div class="table_nav">
+			<label onclick="prevCalendar()"><img class="arrow" src="/img/left_single_arrow.svg"></label> <span id="tbCalendarYM">오늘날짜</span>
+			<label onclick="nextCalendar()"><img class="arrow" src="/img/right_single_arrow.svg"></label>
+		</div>
+		<table id="calendar" border="3" align="center">
+			<tr>
+				<td align="center"><font color="red">일</td>
+				<td align="center">월</td>
+				<td align="center">화</td>
+				<td align="center">수</td>
+				<td align="center">목</td>
+				<td align="center">금</td>
+				<td align="center"><font color="blue">토</td>
+			</tr>
+		</table>
+	</div>
+
+	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+	<script src="js/app/calendar.js"></script>
+	<style type="text/css">
+.oneday {
+	height: 100px;
+	text-align:right;
+	padding:4px;
+	font-family:fantasy;
+}
+</style>
+</body>
+</html>

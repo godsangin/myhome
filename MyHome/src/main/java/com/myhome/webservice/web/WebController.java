@@ -29,4 +29,12 @@ public class WebController {
     public String products(Model model) {
     	return "products";
     }
+    @GetMapping("/calendar")
+    public String calendar() {
+    	return "calendar";
+    }
+    @GetMapping("/introduce")
+    public String introduce() {
+    	return "introduce";
+    }
 }
