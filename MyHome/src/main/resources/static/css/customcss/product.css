@@ -6,6 +6,7 @@
 
 .li-title{
 	padding:12px;
+	background:#456;
 }
 
 .li-title:hover{
@@ -25,9 +26,12 @@
 	margin-right:auto;
 	vertical-align:top;
 	height:512px;
+	
 }
 .container-atom{
 	padding:10%;
+	background:#456;
+	
 }
 .ul-widthfree{
 	width:100%;
@@ -40,4 +44,7 @@ img{
 	margin-left:auto;
 	margin-right:auto;
 	margin-bottom:20px;
+}
+#mycontainer{
+	background:#456;
 }

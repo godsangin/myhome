@@ -8,21 +8,12 @@
     <link rel="stylesheet" href="/css/customcss/product.css">
 </head>
 <body>
-{{> common/menubar}}
 
 <div class="container-product">
-<nav class="navbar navbar-inverse nav-side">
-	<ul class="nav nav-stacked nav-side ul-widthfree">
-		<li class="li-title">Moara</li>
-		<li class="li-title">MyDays</li>
-		<li class="li-title">API Service</li>
-		<li class="li-title">MyHome</li>
-		<li class="li-title">atc</li>
-	</ul>
-</nav>
+{{> common/menubar}}
 
 <!-- 정적으로 화면구성 -->
-<div class="navbar navbar-inverse nav-side container-detail">
+<div id="mycontainer" class="navbar navbar-inverse nav-side container-detail">
 	<div class="container-atom">
 		<img alt="product title" src="/img/moara.PNG" id="product_img">
 		<p id="product_content">Moara:  종이쿠폰을 대체할 차세대 모바일 쿠폰 애플리케이션<br />

@@ -9,14 +9,7 @@
 <link rel="stylesheet" href="/css/customcss/calendar.css">
 </head>
 <body>
-	<nav class="navbar navbar-inverse">
-		<ul class="nav navbar-nav pull-right">
-			<li><a href="#">Link1</a></li>
-			<li><a href="#">Link2</a></li>
-			<li><a href="#">Link3</a></li>
-		</ul>
-		<p class="navbar-text">Some text</p>
-	</nav>
+	{{> common/menubar}}
 	<h1>똥차 Scheduler</h1>
 	<div class="calendar_container">
 		<div class="table_nav">
@@ -35,7 +28,7 @@
 			</tr>
 		</table>
 	</div>
-
+	{{> common/footer}}
 	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 	<script src="js/app/calendar.js"></script>
 	<style type="text/css">
