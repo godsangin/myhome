@@ -9,3 +9,7 @@
 오후 10:53 2019-06-19
 0. eclipse 재설치 및 setting
 1. menubar css 수정
+
+오후 5:41 2019-06-22
+1. boardlist.hbs
+2. aws, ec2
