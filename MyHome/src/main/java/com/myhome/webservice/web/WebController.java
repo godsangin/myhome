@@ -37,4 +37,9 @@ public class WebController {
     public String introduce() {
     	return "introduce";
     }
+    
+    @GetMapping("/boardlist")
+    public String boardlist() {
+    	return "boardlist";
+    }
 }
