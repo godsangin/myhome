@@ -5,7 +5,6 @@
 4. footer.hbs 생성 및 작성
 5. menubar, footer, home css 작성
 
-
 오후 10:53 2019-06-19
 0. eclipse 재설치 및 setting
 1. menubar css 수정
@@ -13,3 +12,7 @@
 오후 5:41 2019-06-22
 1. boardlist.hbs
 2. aws, ec2
+
+오후 10:56 2019-06-24
+1. nohup issue
+2. db 생성
