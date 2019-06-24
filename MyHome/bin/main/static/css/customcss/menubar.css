@@ -1,0 +1,25 @@
+.c-navbar-inverse {
+  background-color: #fff !important;
+}
+
+.c-navbar-inverse .c-navbar-text {
+  color: #000 !important;
+  font-weight: bold !important;
+}
+
+@media (min-width: 768px) {
+  .c-navbar {
+    border-radius: 0px !important;
+  }
+}
+
+.c-navbar-inverse .c-navbar-nav > li > a {
+  color: #000 !important;
+  font-weight: bold !important;
+}
+
+.c-navbar-inverse .c-navbar-nav > li > a:hover,
+.c-navbar-inverse .c-navbar-nav > li > a:focus {
+  color: #DDD !important;
+}
+
