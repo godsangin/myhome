@@ -2,7 +2,6 @@ spring:
   profiles:
     active: local # 기본 환경 선택
 
-debug: true
 # local 환경
 ---
 spring:
