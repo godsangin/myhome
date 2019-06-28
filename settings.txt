@@ -2,3 +2,6 @@
 2. Spring 4.0
 2-1 error issue : help > install new software > Manage Sites 에서 원하는 것만 체크
 		contact all update 체크 해제
+3. org.springframework cannot be resolved error
+   프로젝트 우클릭 > configure > gradle nature 클릭
+   프로젝트 우클릭 > gradle > refresh gradle project
