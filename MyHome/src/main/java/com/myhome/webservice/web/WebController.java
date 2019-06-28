@@ -1,9 +1,12 @@
 package com.myhome.webservice.web;
 
+import javax.annotation.Resource;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
+import com.myhome.webservice.comment.CommentService;
 import com.myhome.webservice.service.PostsService;
 
 import lombok.AllArgsConstructor;
@@ -13,6 +16,9 @@ import lombok.AllArgsConstructor;
 public class WebController {
 
 	private PostsService postsService;
+	@Resource(name="commentservice")
+	private CommentService commentService;
+	
 
     @GetMapping("/")
     public String main(Model model) {
@@ -41,5 +47,11 @@ public class WebController {
     @GetMapping("/boardlist")
     public String boardlist() {
     	return "boardlist";
+    }
+    
+    @GetMapping("/comments")
+    public String getCommets() {
+    	System.out.println(commentService.getComment().toString());
+    	return "home";
     }
 }
