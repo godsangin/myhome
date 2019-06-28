@@ -31,6 +31,8 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	implementation 'org.projectlombok:lombok:1.18.8'
 	implementation 'pl.allegro.tech.boot:handlebars-spring-boot-starter:0.3.0'
+	// https://mvnrepository.com/artifact/org.mybatis/mybatis
+	implementation group: 'org.mybatis', name: 'mybatis', version: '3.4.6'
 	compileOnly 'org.projectlombok:lombok'
 	runtimeOnly 'com.h2database:h2'
 	annotationProcessor 'org.projectlombok:lombok'
