@@ -6,7 +6,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
-import com.myhome.webservice.comment.CommentService;
+import com.myhome.webservice.service.CommentService;
 import com.myhome.webservice.service.PostsService;
 
 import lombok.AllArgsConstructor;

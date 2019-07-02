@@ -1,18 +1,20 @@
-package com.myhome.webservice.comment;
-
-import org.apache.ibatis.session.SqlSession;
+package com.myhome.webservice.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.myhome.webservice.dao.CommentDao;
+import com.myhome.webservice.dto.Comment;
+
 @Service("commentservice")
 public class CommentServiceImpl implements CommentService{
+	
 	@Autowired(required=true)
-	private SqlSession sqlSession;
+	private CommentDao commentdao;
 	
 	@Override
 	public Comment getComment() {
 		// TODO Auto-generated method stub
-		return sqlSession.selectOne("com.myhome.CommentMapper.getComment");
+		return commentdao.getComment();
 	}
 	
 }
