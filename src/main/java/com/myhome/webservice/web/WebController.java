@@ -50,10 +50,6 @@ public class WebController {
     public String boardlist() {
     	return "boardlist";
     }
-    @GetMapping("/gallery")
-    public String gallery() {
-    	return "gallery";
-    }
     
     @GetMapping("/comments")
     public String getCommets() {
