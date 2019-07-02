@@ -7,6 +7,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import com.myhome.webservice.service.CommentService;
+import com.myhome.webservice.service.PermissionService;
 import com.myhome.webservice.service.PostsService;
 
 import lombok.AllArgsConstructor;
@@ -18,7 +19,8 @@ public class WebController {
 	private PostsService postsService;
 	@Resource(name="commentservice")
 	private CommentService commentService;
-	
+	@Resource
+	private PermissionService permissionService;
 
     @GetMapping("/")
     public String main(Model model) {
@@ -52,6 +54,12 @@ public class WebController {
     @GetMapping("/comments")
     public String getCommets() {
     	System.out.println(commentService.getComment().toString());
+    	return "home";
+    }
+    
+    @GetMapping("/permission")
+    public String getPermission() {
+    	System.out.println(permissionService.getPermission().toString());
     	return "home";
     }
 }

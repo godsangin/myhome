@@ -4,8 +4,10 @@ import lombok.*;
 
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Getter
+@Setter
+@ToString
 public class Permission{
-    private @NonNull String p_mail;
+    private String p_mail;
     private int p_grade;
 
     @Builder
