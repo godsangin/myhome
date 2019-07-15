@@ -1,9 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.myhome.PermissionMapper">
-	<select id="getPermission" resultType="com.myhome.webservice.dto.Permission">
+	<select id="getPermissionByMail" resultType="com.myhome.webservice.dto.Permission">
 		SELECT *
 		FROM permission
-		WHERE p_grade=1
+		WHERE p_grade=#{p_mail}
 	</select>
+	<insert id="insertPermission" useGeneratedKeys="true" keyProperty="p_mail">
+		INSERT INTO permission (p_mail, p_grade) VALUES
+		(#{p_mail}, #{p_grade},)
+	</insert>
+	<update id="updatePermission">
+		UPDATE permission set p_grade=#{p_grade}
+		WHERE p_mail=#{p_mail}
+	</update>
+	<delete id="deletePermissionByNum">
+		DELETE FROM permission
+		WHERE p_mail=#{p_mail}
+	</delete>
 </mapper>

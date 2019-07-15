@@ -9,6 +9,7 @@ public class CommentDao {
 	@Autowired(required=true)
 	private SqlSession sqlSession;
 	
+	
 	public Comment getComment() {
 		return sqlSession.selectOne("com.myhome.CommentMapper.getComment");
 	}

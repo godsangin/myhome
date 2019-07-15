@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.myhome.BoardMapper">
+	<select id="getBoardByNum" resultType="com.myhome.webservice.dto.Board">
+		SELECT *
+		FROM board
+		WHERE c_number=#{b_number}
+	</select>
+	<select id="getAllBoardList" resultType="map">
+		SELECT *
+		FROM board
+	</select>
+	<insert id="insertBoard" useGeneratedKeys="true" keyProperty="b_number">
+		INSERT INTO board (b_title, b_content, b_writer, b_wdate, b_category, b_views, b_like) VALUES
+		(#{b_title}, #{b_content}, #{b_writer}, #{b_wdate}, #{b_category}, #{b_views}, #{b_like})
+	</insert>
+	<update id="updateBoardByNum">
+		UPDATE board set b_title=#{b_title}, b_content=#{b_content}, b_wdate=#{b_wdate}, b_category=#{b_category}
+		WHERE b_number=#{b_number}
+	</update>
+	<update id="updateViewsByNum">
+		UPDATE board set b_views=#{b_views}
+		WHERE b_number=#{b_number}
+	</update>
+	<update id="updateLikesByNum">
+		UPDATE board set b_likes=#{b_likes}
+		WHERE b_number=#{b_number}
+	</update>
+	<delete id="deleteBoardByNum">
+		DELETE FROM board 
+		WHERE b_number=#{b_number}
+	</delete>
+</mapper>

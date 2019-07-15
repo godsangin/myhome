@@ -19,6 +19,10 @@ img{
 	margin:30px;
 	border:1px solid black;
 	position:relative;
+	width:95%;
+}
+.right-margin{
+	margin-right:2.5%;
 }
 #add-bt{
 	height:50px;

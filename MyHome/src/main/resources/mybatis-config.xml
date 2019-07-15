@@ -23,5 +23,8 @@
     	<mapper resource="mapper/PermissionMapper.xml"/>
     	<mapper resource="mapper/PlanMapper.xml"/>
     	<mapper resource="mapper/UserMapper.xml"/>
+    	<mapper resource="mapper/BoardMapper.xml"/>
+    	<mapper resource="mapper/AttachmentMapper.xml"/>
+    	
     </mappers>
 </configuration>

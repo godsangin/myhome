@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.myhome.AttachmentMapper">
+	<select id="getAttachmentByNum" resultType="com.myhome.webservice.dto.Attachment">
+		SELECT *
+		FROM attachment
+		WHERE a_number=#{a_number}
+	</select>
+	<select id="getAttachmentByBoardNum" resultType="map">
+		SELECT *
+		FROM attachment
+		WHERE a_bnumber=#{b_number}
+	</select>
+	<insert id="insertAttachment" useGeneratedKeys="true" keyProperty="a_number">
+		INSERT INTO comment (a_number, a_bnumber, a_file) VALUES
+		(#{a_number}, #{a_bnumber}, #{a_file})
+	</insert>
+	<update id="updateAttachment">
+		UPDATE attachment set a_file=#{a_file}
+		WHERE a_number=#{a_number}
+	</update>
+	<delete id="deleteAttachmentByNum">
+		DELETE FROM attachment
+		WHERE a_number=#{a_number}
+	</delete>
+	<delete id="deleteAttachmentByBoardNum">
+		DELETE FROM attachment
+		WHERE a_bnumber=#{b_number}
+	</delete>
+</mapper>
