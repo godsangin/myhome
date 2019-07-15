@@ -1,9 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.myhome.CommentMapper">
-	<select id="getComment" resultType="com.myhome.webservice.dto.Comment">
+	<select id="getCommentByNum" resultType="com.myhome.webservice.dto.Comment">
 		SELECT *
 		FROM comment
-		WHERE c_number=1
+		WHERE c_number=#{c_number}
 	</select>
+	<select id="getCommentByBoardNum" resultType="map">
+		SELECT *
+		FROM comment
+		WHERE c_bnumber=#{b_number}
+	</select>
+	<insert id="insertComment" useGeneratedKeys="true" keyProperty="c_number">
+		INSERT INTO comment (c_writer, c_content, c_wdate, c_bnumber) VALUES
+		(#{c_writer}, #{c_content}, #{c_wdate}, #{c_bnumber})
+	</insert>
+	<update id="updateComment">
+		UPDATE comment set c_content=#{c_content}, c_wdate=#{c_wdate}
+		WHERE c_number=#{c_number}
+	</update>
+	<delete id="deleteCommentByNum">
+		DELETE FROM comment
+		WHERE c_number=#{c_number}
+	</delete>
 </mapper>
