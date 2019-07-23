@@ -6,7 +6,7 @@
 		FROM comment
 		WHERE c_number=#{c_number}
 	</select>
-	<select id="getCommentByBoardNum" resultType="map">
+	<select id="getCommentListByBoardNum" resultType="map">
 		SELECT *
 		FROM comment
 		WHERE c_bnumber=#{b_number}
@@ -22,5 +22,9 @@
 	<delete id="deleteCommentByNum">
 		DELETE FROM comment
 		WHERE c_number=#{c_number}
+	</delete>
+	<delete id="deleteCommentByBoardNum">
+		DELETE FROM comment
+		WHERE c_bnumber=#{b_number}
 	</delete>
 </mapper>

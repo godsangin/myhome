@@ -30,7 +30,7 @@ public class BoardDao {
 	
 	public boolean insertBoard(Board board) {
 		try {
-			sqlSession.insert(ns + "insertBoard");
+			sqlSession.insert(ns + "insertBoard", board);
 		}catch(Exception e) {
 			e.printStackTrace();
 			return false;
