@@ -6,7 +6,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
-import com.myhome.webservice.service.CommentService;
 import com.myhome.webservice.service.PermissionService;
 import com.myhome.webservice.service.PostsService;
 
@@ -17,8 +16,6 @@ import lombok.AllArgsConstructor;
 public class WebController {
 
 	private PostsService postsService;
-	@Resource(name="commentservice")
-	private CommentService commentService;
 	@Resource
 	private PermissionService permissionService;
 
@@ -53,12 +50,6 @@ public class WebController {
     @GetMapping("/gallery")
     public String gallery() {
     	return "gallery";
-    }
-    
-    @GetMapping("/comments")
-    public String getCommets() {
-    	System.out.println(commentService.getComment().toString());
-    	return "home";
     }
     
     @GetMapping("/permission")

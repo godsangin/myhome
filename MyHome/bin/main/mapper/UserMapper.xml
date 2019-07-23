@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.myhome.UserMapper">
+	<select id="getUserByMail" resultType="com.myhome.webservice.dto.User">
+		SELECT *
+		FROM user
+		WHERE u_mail=#{u_mail}
+	</select>
+	<insert id="insertUser" useGeneratedKeys="true" keyProperty="u_mail">
+		INSERT INTO user (u_mail, u_name, u_tel, u_birth, u_pw) VALUES
+		(#{u_mail}, #{u_name}, #{u_tel}, #{u_birth}, #{u_pw})
+	</insert>
+	<update id="updateUserInfo" parameterType="com.myhome.webservice.dto.User">
+		UPDATE user set u_name=#{u_name}, u_tel=#{u_tel}, u_birth=#{u_birth}
+		WHERE u_mail=#{u_mail}
+	</update>
+	<update id="updateUserPW" parameterType="com.myhome.webservice.dto.User">
+		UPDATE user set u_pw=#{u_pw}
+		WHERE u_mail=#{u_mail}
+	</update>
+	<delete id="deleteUserByMail" parameterType="com.myhome.webservice.dto.User">
+		DELETE FROM user
+		WHERE u_mail=#{u_mail}
+	</delete>
+</mapper>

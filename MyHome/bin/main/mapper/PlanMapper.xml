@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.myhome.PlanMapper">
+	<select id="getPlanByNum" resultType="com.myhome.webservice.dto.Plan">
+		SELECT *
+		FROM plan
+		WHERE p_number=#{p_number}
+	</select>
+	<select id="getAllPlans">
+		SELECT *
+		FROM plan
+	</select>
+	<select id="getPlansByMonth">
+		SELECT *
+		FROM plan
+		WHERE s_date between #{m_start} AND #{m_end} OR e_date between #{m_start} AND #{m_end}
+	</select>
+	<insert id="insertPlan" useGeneratedKeys="true" keyProperty="p_number">
+		INSERT INTO plan (p_number, p_title, p_sdate, p_edate, p_content) VALUES
+		(#{p_number}, #{p_title}, #{p_sdate}, #{p_edate}, #{p_content})
+	</insert>
+	<update id="updatePlan">
+		UPDATE plan set p_title=#{p_title}, p_sdate=#{p_sdate}, p_edate=#{p_edate}, p_content=#{p_content}
+		WHERE p_number=#{p_number}
+	</update>
+	<delete id="deletePlanByNum">
+		DELETE FROM plan
+		WHERE p_number=#{p_number}
+	</delete>
+</mapper>
