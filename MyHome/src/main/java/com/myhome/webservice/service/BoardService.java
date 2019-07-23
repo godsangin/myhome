@@ -11,6 +11,7 @@ import com.myhome.webservice.dao.BoardDao;
 import com.myhome.webservice.dao.CommentDao;
 import com.myhome.webservice.dto.Attachment;
 import com.myhome.webservice.dto.Board;
+import com.myhome.webservice.dto.Comment;
 
 @Service
 public class BoardService {
@@ -30,6 +31,10 @@ public class BoardService {
 	}
 	
 	public boolean insertBoard(Board board, List<Attachment> attachments) {
+		System.out.println("service" + board);
+		if(attachments == null) {
+			
+		}
 		if(!boardDao.insertBoard(board)) {
 			return false;
 		}
@@ -58,11 +63,28 @@ public class BoardService {
 		if(!boardDao.deleteBoardByNum(b_number)) {
 			return false;
 		}
+		if(!commentDao.deleteCommentByBoardNum(b_number)) {
+			return false;
+		}
 		return attachmentDao.deleteAttachmentByBoardNum(b_number); 
 	}
 	
 	public List<Attachment> getAttachmentListByBoardNum(int b_number){
 		return attachmentDao.getAttachmentListByBoardNum(b_number);
 	}
-	//comments
+	
+	/**
+	 * comments
+	 */
+	public boolean insertComment(Comment comment) {
+		return commentDao.insertComment(comment);
+	}
+	
+	public boolean updateComment(Comment comment) {
+		return commentDao.updateComment(comment);
+	}
+	
+	public List<Comment> getCommentListByBoardNum(int b_number){
+		return commentDao.getCommentListByBoardNum(b_number);
+	}
 }

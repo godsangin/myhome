@@ -1,6 +1,8 @@
 package com.myhome.webservice.web;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -15,6 +17,7 @@ import com.myhome.webservice.domain.post.PostsRepository;
 import com.myhome.webservice.domain.post.PostsSaveRequestDto;
 import com.myhome.webservice.dto.Attachment;
 import com.myhome.webservice.dto.Board;
+import com.myhome.webservice.dto.Comment;
 import com.myhome.webservice.dto.Plan;
 import com.myhome.webservice.dto.User;
 import com.myhome.webservice.service.PlanService;
@@ -115,6 +118,7 @@ public class WebRestController {
      */
     @PostMapping("/insertBoard")
     public boolean insertBoard(@RequestBody Board board) {
+    	System.out.println("controller" + board.getB_title());
     	return boardService.insertBoard(board, null);
     }
     
@@ -138,9 +142,45 @@ public class WebRestController {
     public boolean deleteBoardByNum(@RequestBody int b_number) {
     	return boardService.deleteBoardByNum(b_number);
     }
-    
-    @GetMapping("/getAttachmentListByBoardNumber")
+    /**
+     * attachment data
+     */
+    @GetMapping("/getAttachmentListByBoardNum")
     public List<Attachment> getAttachmentListByBoardNumber(@RequestParam int b_number){
     	return boardService.getAttachmentListByBoardNum(b_number);
+    }
+    
+    /**
+     * comment data
+     */
+    
+    @PostMapping("/insertComment")
+    public boolean insertComment(@RequestBody Comment comment) {
+    	return boardService.insertComment(comment);
+    }
+    
+    @GetMapping("/getCommentListByBoardNum")
+    public List<Comment> getCommentListByBoardNum(@RequestParam int b_number){
+    	return boardService.getCommentListByBoardNum(b_number);
+    }
+    
+    @PutMapping("/updateComment")
+    public boolean updateComment(@RequestBody Comment comment) {
+    	return boardService.updateComment(comment);
+    }
+    
+    /**
+     * board detail data
+     */
+    @GetMapping("/getBoardDetailByBoardNum")
+    public Map<String, Object> getBoardDetailByBoardNum(@RequestParam int b_number){
+    	Map<String, Object> map = new HashMap<String, Object>();
+    	Board board = boardService.getBoardByNum(b_number);
+    	List<Attachment> attachments = boardService.getAttachmentListByBoardNum(b_number);
+    	List<Comment> comments = boardService.getCommentListByBoardNum(b_number);
+    	map.put("board", board);
+    	map.put("attachments", attachments);
+    	map.put("comments", comments);
+    	return map;
     }
 }

@@ -13,11 +13,12 @@
 	<select id="getBoardListByPageNum" resultType="map">
 		SELECT * 
 		FROM board
+		ORDER BY b_number DESC
 		LIMIT #{b_start}, #{b_limit}
 	</select>
 	<insert id="insertBoard" useGeneratedKeys="true" keyProperty="b_number">
-		INSERT INTO board (b_title, b_content, b_writer, b_wdate, b_category, b_views, b_like) VALUES
-		(#{b_title}, #{b_content}, #{b_writer}, #{b_wdate}, #{b_category}, #{b_views}, #{b_like})
+		INSERT INTO board (b_title, b_content, b_writer, b_category) VALUES
+		(#{b_title}, #{b_content}, #{b_writer}, #{b_category})
 	</insert>
 	<update id="updateBoardByNum">
 		UPDATE board set b_title=#{b_title}, b_content=#{b_content}, b_wdate=#{b_wdate}, b_category=#{b_category}
