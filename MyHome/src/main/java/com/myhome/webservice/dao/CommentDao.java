@@ -10,10 +10,10 @@ import com.myhome.webservice.dto.Comment;
 public class CommentDao {
 	@Autowired(required=true)
 	private SqlSession sqlSession;
-	private String ns = "com.myhome.CommentMapper.getComment.";
+	private String ns = "com.myhome.CommentMapper.";
 	
 	public List<Comment> getCommentListByBoardNum(int b_number) {
-		return sqlSession.selectOne(ns + "getCommentListByBoardNum", b_number);
+		return sqlSession.selectList(ns + "getCommentListByBoardNum", b_number);
 	}
 	
 	public boolean insertComment(Comment comment) {

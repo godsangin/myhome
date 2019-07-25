@@ -30,6 +30,10 @@ public class BoardService {
 		return boardDao.getBoardListByPageNum(page_num);
 	}
 	
+	public int getTotalPageNum() {
+		return boardDao.getTotalPageNum();
+	}
+	
 	public boolean insertBoard(Board board, List<Attachment> attachments) {
 		System.out.println("service" + board);
 		if(attachments == null) {
