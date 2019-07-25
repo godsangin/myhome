@@ -4,7 +4,7 @@
 	<select id="getBoardByNum" resultType="com.myhome.webservice.dto.Board">
 		SELECT *
 		FROM board
-		WHERE c_number=#{b_number}
+		WHERE b_number=#{b_number}
 	</select>
 	<select id="getAllBoardList" resultType="map">
 		SELECT *
@@ -15,6 +15,10 @@
 		FROM board
 		ORDER BY b_number DESC
 		LIMIT #{b_start}, #{b_limit}
+	</select>
+	<select id="getTotalPageNum">
+		SELECT COUNT(*)
+		FROM board
 	</select>
 	<insert id="insertBoard" useGeneratedKeys="true" keyProperty="b_number">
 		INSERT INTO board (b_title, b_content, b_writer, b_category) VALUES

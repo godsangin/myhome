@@ -18,13 +18,13 @@ public class BoardDao {
 	private String ns = "com.myhome.BoardMapper."; 
 	
 	public Board getBoardByNum(int b_number) {
-		return sqlSession.selectOne(ns + "getBoard", b_number);
+		return sqlSession.selectOne(ns + "getBoardByNum", b_number);
 	}
 	
 	public List<Board> getBoardListByPageNum(int page){
 		Map<String, Integer> map = new HashMap<String, Integer>();
-		map.put("b_start", page * 20);
-		map.put("b_limit", 20);
+		map.put("b_start", page * 1);
+		map.put("b_limit", 1);
 		return sqlSession.selectList(ns + "getBoardListByPageNum", map);
 	}
 	
@@ -77,4 +77,9 @@ public class BoardDao {
 		}
 		return true;
 	}
+	
+	public int getTotalPageNum() {
+		return sqlSession.selectOne(ns + "getTotalPageNum");
+	}
+	
 }

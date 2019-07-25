@@ -132,6 +132,11 @@ public class WebRestController {
     	return boardService.getBoardsByPageNum(page_num);
     }
     
+    @GetMapping("/getBoardTotalPageNum")
+    public int getBoardTotalPageNum() {
+    	return boardService.getTotalPageNum();
+    }
+    
     @PutMapping("/updateBoard")
     public boolean updateBoard(@RequestBody Board board, List<Attachment> attachments) {
     	return boardService.updateBoard(board, attachments);
