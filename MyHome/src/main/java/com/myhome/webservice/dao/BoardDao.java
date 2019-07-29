@@ -28,14 +28,15 @@ public class BoardDao {
 		return sqlSession.selectList(ns + "getBoardListByPageNum", map);
 	}
 	
-	public boolean insertBoard(Board board) {
+	public int insertBoard(Board board) {
+		int index = -1;
 		try {
-			sqlSession.insert(ns + "insertBoard", board);
+			index = sqlSession.selectOne(ns + "insertBoard", board);
 		}catch(Exception e) {
 			e.printStackTrace();
-			return false;
+			return index;
 		}
-		return true;
+		return index;
 	}
 	
 	public boolean updateBoardByNum(Board board) {

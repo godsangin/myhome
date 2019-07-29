@@ -20,10 +20,19 @@
 		SELECT COUNT(*)
 		FROM board
 	</select>
-	<insert id="insertBoard" useGeneratedKeys="true" keyProperty="b_number">
+	<select id="insertBoard" resultType="int">
+<!-- 		<insert> -->
 		INSERT INTO board (b_title, b_content, b_writer, b_category) VALUES
-		(#{b_title}, #{b_content}, #{b_writer}, #{b_category})
-	</insert>
+		(#{b_title}, #{b_content}, #{b_writer}, #{b_category});
+<!-- 		</insert> -->
+		SELECT last_insert_id();
+	</select>
+	
+<!-- 	<insert id="insertBoard" useGeneratedKeys="true" keyProperty="b_number"> -->
+<!-- 		INSERT INTO board (b_title, b_content, b_writer, b_category) VALUES -->
+<!-- 		(#{b_title}, #{b_content}, #{b_writer}, #{b_category}); -->
+<!-- 		SELECT last_insert_id(); -->
+<!-- 	</insert> -->
 	<update id="updateBoardByNum">
 		UPDATE board set b_title=#{b_title}, b_content=#{b_content}, b_wdate=#{b_wdate}, b_category=#{b_category}
 		WHERE b_number=#{b_number}

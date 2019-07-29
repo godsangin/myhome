@@ -1,5 +1,6 @@
 package com.myhome.webservice.web;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -116,10 +117,22 @@ public class WebRestController {
     /**
      * board data action
      */
+//    @PostMapping("/insertBoard")
+//    public boolean insertBoard(@RequestBody Board board, @RequestBody List<String> attachments) {
+//    	System.out.println("controller" + board.getB_title());
+//    	return boardService.insertBoard(board, attachments);
+//    }
     @PostMapping("/insertBoard")
-    public boolean insertBoard(@RequestBody Board board) {
-    	System.out.println("controller" + board.getB_title());
-    	return boardService.insertBoard(board, null);
+    public boolean insertBoard(@RequestBody Map<String, Object> map) {
+    	Board board = Board.builder()
+	    	.b_category((int)map.get("b_category"))
+	    	.b_content((String)map.get("b_content"))
+	    	.b_title((String)map.get("b_title"))
+	    	.b_writer((String)map.get("b_writer")).build();
+    	List<String> attachments = (List)map.get("attachments");
+    	System.out.println(board.toString());
+    	System.out.println(attachments.toString());
+    	return boardService.insertBoard(board, attachments);
     }
     
     @GetMapping("/getBoard")

@@ -1,5 +1,6 @@
 package com.myhome.webservice.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -34,15 +35,22 @@ public class BoardService {
 		return boardDao.getTotalPageNum();
 	}
 	
-	public boolean insertBoard(Board board, List<Attachment> attachments) {
+	public boolean insertBoard(Board board, List<String> attachments) {
 		System.out.println("service" + board);
 		if(attachments == null) {
 			
 		}
-		if(!boardDao.insertBoard(board)) {
+		int index = boardDao.insertBoard(board);
+		System.out.println(index);
+		if(index == -1) {
 			return false;
 		}
-		return attachmentDao.insertAttachment(attachments);
+		List<Attachment> ats = new ArrayList<Attachment>();
+		for(String str: attachments) {
+			if(str.equals("")) break;
+			ats.add(new Attachment(-1, index, str));
+		}
+		return attachmentDao.insertAttachment(ats);
 	}
 	
 	public boolean updateBoard(Board board, List<Attachment> attachments) {

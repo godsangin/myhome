@@ -12,8 +12,8 @@
 		WHERE a_bnumber=#{b_number}
 	</select>
 	<insert id="insertAttachment" useGeneratedKeys="true" keyProperty="a_number">
-		INSERT INTO comment (a_number, a_bnumber, a_file) VALUES
-		(#{a_number}, #{a_bnumber}, #{a_file})
+		INSERT INTO attachment (a_bnumber, a_file) VALUES
+		(#{a_bnumber}, #{a_file})
 	</insert>
 	<update id="updateAttachment">
 		UPDATE attachment set a_file=#{a_file}

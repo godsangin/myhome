@@ -28,6 +28,7 @@ public class AttachmentDao {
 				sqlSession.insert(ns + "insertAttachment", attachment);
 			}
 		}catch(Exception e) {
+			e.printStackTrace();
 			return false;
 		}
 		return true;
