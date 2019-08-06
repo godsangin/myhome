@@ -34,6 +34,12 @@ public class BoardService {
 	public int getTotalPageNum() {
 		return boardDao.getTotalPageNum();
 	}
+	public List<Attachment> getAttachmentsByPageNum(int page_num){
+		return attachmentDao.getAttachmentListByPageNum(page_num);
+	}
+	public int getGalleryTotalPageNum() {
+		return attachmentDao.getTotalPageNum();
+	}
 	
 	public boolean insertBoard(Board board, List<String> attachments) {
 		System.out.println("service" + board);
@@ -63,12 +69,16 @@ public class BoardService {
 		return attachmentDao.insertAttachment(attachments);
 	}
 	
-	public boolean likeupdate(Board board) {
-		return boardDao.updateLikesByNum(board);
+	public boolean updateLike(int b_number) {
+		return boardDao.updateLikesByNum(b_number);
 	}
 	
-	public boolean viewupdate(Board board) {
-		return boardDao.updateViewsByNum(board);
+	public boolean updateViews(int b_number) {
+		return boardDao.updateViewsByNum(b_number);
+	}
+	
+	public boolean updateComments(int b_number) {
+		return boardDao.updateCommentsByNum(b_number);
 	}
 	
 	public boolean deleteBoardByNum(int b_number) {

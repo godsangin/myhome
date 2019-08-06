@@ -23,8 +23,8 @@ public class BoardDao {
 	
 	public List<Board> getBoardListByPageNum(int page){
 		Map<String, Integer> map = new HashMap<String, Integer>();
-		map.put("b_start", page * 1);
-		map.put("b_limit", 1);
+		map.put("b_start", page * 20);
+		map.put("b_limit", 20);
 		return sqlSession.selectList(ns + "getBoardListByPageNum", map);
 	}
 	
@@ -49,9 +49,9 @@ public class BoardDao {
 		return true;
 	}
 	
-	public boolean updateViewsByNum(Board board) {
+	public boolean updateViewsByNum(int b_number) {
 		try {
-			sqlSession.update(ns + "updateViewsByNum", board);
+			sqlSession.update(ns + "updateViewsByNum", b_number);
 		}catch(Exception e) {
 			e.printStackTrace();
 			return false;
@@ -59,9 +59,9 @@ public class BoardDao {
 		return true;
 	}
 	
-	public boolean updateLikesByNum(Board board) {
+	public boolean updateLikesByNum(int b_number) {
 		try {
-			sqlSession.update(ns + "updateLikesByNum", board);
+			sqlSession.update(ns + "updateLikesByNum", b_number);
 		}catch(Exception e) {
 			e.printStackTrace();
 			return false;
@@ -81,6 +81,16 @@ public class BoardDao {
 	
 	public int getTotalPageNum() {
 		return sqlSession.selectOne(ns + "getTotalPageNum");
+	}
+	
+	public boolean updateCommentsByNum(int b_number) {
+		try {
+			sqlSession.update(ns + "updateCommentsByNum", b_number);
+		}catch(Exception e) {
+			e.printStackTrace();
+			return false;
+		}
+		return true;
 	}
 	
 }
