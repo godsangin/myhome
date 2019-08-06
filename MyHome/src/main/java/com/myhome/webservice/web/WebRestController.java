@@ -187,9 +187,10 @@ public class WebRestController {
     
     @PostMapping("/insertComment")
     public boolean insertComment(@RequestBody Comment comment) {
-    	if(!boardService.updateComments(comment.getC_bnumber())) {
-    		System.out.println("board update comment num error!!");
-    	}
+    	System.out.println(comment.toString());
+//    	if(!boardService.updateComments(comment.getC_bnumber())) {
+//    		System.out.println("board update comment num error!!");
+//    	}
     	return boardService.insertComment(comment);
     }
     

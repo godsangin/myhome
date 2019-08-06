@@ -6,7 +6,7 @@
 		FROM plan
 		WHERE p_number=#{p_number}
 	</select>
-	<select id="getAllPlans">
+	<select id="getAllPlans" resultType="map">
 		SELECT *
 		FROM plan
 	</select>
