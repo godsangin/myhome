@@ -22,6 +22,10 @@ public class AttachmentDao {
 		return sqlSession.selectList(ns + "getAttachmentListByBoardNum", b_number);
 	}
 	
+	public List<Attachment> getBoardWithAttachmentList(){
+		return sqlSession.selectList(ns + "getBoardWithAttachmentList");
+	}
+	
 	public int getTotalPageNum() {
 		return sqlSession.selectOne(ns + "getTotalPageNum");
 	}

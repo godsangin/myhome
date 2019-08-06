@@ -43,10 +43,11 @@ public class BoardService {
 	
 	public boolean insertBoard(Board board, List<String> attachments) {
 		System.out.println("service" + board);
-		if(attachments == null) {
-			
-		}
+		
 		int index = boardDao.insertBoard(board);
+		if(attachments == null) {
+			return true;
+		}
 		System.out.println(index);
 		if(index == -1) {
 			return false;

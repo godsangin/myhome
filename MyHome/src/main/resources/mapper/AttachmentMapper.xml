@@ -16,10 +16,17 @@
 		FROM attachment
 	</select>
 	<select id="getAttachmentListByPageNum" resultType="map">
-		SELECT * 
-		FROM attachment
-		ORDER BY a_number DESC
+		select *
+		from attachment
+		as a left join board 
+		as b on a.a_bnumber = b.b_number
 		LIMIT #{a_start}, #{a_limit}
+	</select>
+	<select id="getBoardWithAttachmentList" resultType="map">
+		select *
+		from attachment
+		as a left join board 
+		as b on a.a_bnumber = b.b_number;
 	</select>
 	<insert id="insertAttachment" useGeneratedKeys="true" keyProperty="a_number">
 		INSERT INTO attachment (a_bnumber, a_file) VALUES
