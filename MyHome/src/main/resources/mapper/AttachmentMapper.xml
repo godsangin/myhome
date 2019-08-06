@@ -11,6 +11,16 @@
 		FROM attachment
 		WHERE a_bnumber=#{b_number}
 	</select>
+	<select id="getTotalPageNum">
+		SELECT COUNT(*)
+		FROM attachment
+	</select>
+	<select id="getAttachmentListByPageNum" resultType="map">
+		SELECT * 
+		FROM attachment
+		ORDER BY a_number DESC
+		LIMIT #{a_start}, #{a_limit}
+	</select>
 	<insert id="insertAttachment" useGeneratedKeys="true" keyProperty="a_number">
 		INSERT INTO attachment (a_bnumber, a_file) VALUES
 		(#{a_bnumber}, #{a_file})

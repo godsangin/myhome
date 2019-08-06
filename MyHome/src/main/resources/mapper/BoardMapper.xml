@@ -16,7 +16,8 @@
 		ORDER BY b_number DESC
 		LIMIT #{b_start}, #{b_limit}
 	</select>
-	<select id="getTotalPageNum">
+	
+	<select id="getTotalPageNum" resultType="int">
 		SELECT COUNT(*)
 		FROM board
 	</select>
@@ -38,11 +39,15 @@
 		WHERE b_number=#{b_number}
 	</update>
 	<update id="updateViewsByNum">
-		UPDATE board set b_views=#{b_views}
+		UPDATE board set b_views=b_views+1
 		WHERE b_number=#{b_number}
 	</update>
 	<update id="updateLikesByNum">
-		UPDATE board set b_likes=#{b_likes}
+		UPDATE board set b_likes=b_likes+1
+		WHERE b_number=#{b_number}
+	</update>
+	<update id="updateCommentsByNum">
+		UPDATE board set b_comments=b_comments+1
 		WHERE b_number=#{b_number}
 	</update>
 	<delete id="deleteBoardByNum">

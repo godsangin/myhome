@@ -89,6 +89,10 @@ public class WebRestController {
     /**
      * plan data action
      */
+    @GetMapping("/getAllPlans")
+    public List<Plan> getAllPlans(){
+    	return planService.getAllPlans();
+    }
     @PostMapping("/insertPlan")
     public boolean insertPlan(@RequestBody Plan plan) {
     	return planService.insertPlan(plan);
@@ -147,7 +151,11 @@ public class WebRestController {
     
     @GetMapping("/getBoardTotalPageNum")
     public int getBoardTotalPageNum() {
-    	return boardService.getTotalPageNum();
+    	int pages = boardService.getTotalPageNum();
+    	if(pages % 20 > 0) {
+    		return (pages / 20) + 1;
+    	}
+    	return pages / 20;
     }
     
     @PutMapping("/updateBoard")
@@ -168,12 +176,20 @@ public class WebRestController {
     	return boardService.getAttachmentListByBoardNum(b_number);
     }
     
+    @GetMapping("/getAttachmentListByPage")
+    public List<Attachment> getAttachmentListByPage(@RequestParam int page_num){
+    	return boardService.getAttachmentsByPageNum(page_num);
+    }
+    
     /**
      * comment data
      */
     
     @PostMapping("/insertComment")
     public boolean insertComment(@RequestBody Comment comment) {
+    	if(!boardService.updateComments(comment.getC_bnumber())) {
+    		System.out.println("board update comment num error!!");
+    	}
     	return boardService.insertComment(comment);
     }
     

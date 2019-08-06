@@ -19,6 +19,10 @@ public class PlanService{
 	@Autowired(required=true)
 	private PlanDao plandao;
 	
+	public List<Plan> getAllPlans(){
+		return plandao.selectAllPlan();
+	}
+	
 	public List<Plan> getPlansByMonth(String m_start){
 		List<Plan> thisMonthPlan = new ArrayList<>();
 		int m_endInteger = Integer.parseInt(m_start);
