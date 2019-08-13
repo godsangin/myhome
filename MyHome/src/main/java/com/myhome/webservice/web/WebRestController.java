@@ -129,7 +129,7 @@ public class WebRestController {
     @PostMapping("/insertBoard")
     public boolean insertBoard(@RequestBody Map<String, Object> map) {
     	Board board = Board.builder()
-	    	.b_category((int)map.get("b_category"))
+	    	.b_category(Integer.parseInt((String)map.get("b_category")))
 	    	.b_content((String)map.get("b_content"))
 	    	.b_title((String)map.get("b_title"))
 	    	.b_writer((String)map.get("b_writer")).build();

@@ -100,6 +100,9 @@ public class BoardService {
 	 * comments
 	 */
 	public boolean insertComment(Comment comment) {
+		if(!boardDao.updateCommentsByNum(comment.getC_bnumber())) {
+			return false;
+		}
 		return commentDao.insertComment(comment);
 	}
 	
