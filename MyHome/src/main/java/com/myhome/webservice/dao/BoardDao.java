@@ -21,10 +21,16 @@ public class BoardDao {
 		return sqlSession.selectOne(ns + "getBoardByNum", b_number);
 	}
 	
-	public List<Board> getBoardListByPageNum(int page){
+	public List<Board> getNoticeList(){
+		return sqlSession.selectList(ns + "getNoticeList");
+	}
+	
+	public List<Board> getBoardListByPageNum(int page, int limit){
 		Map<String, Integer> map = new HashMap<String, Integer>();
-		map.put("b_start", page * 20);
-		map.put("b_limit", 20);
+//		map.put("b_start", page * 20);
+//		map.put("b_limit", 20);
+		map.put("b_start", page * limit);
+		map.put("b_limit", limit);
 		return sqlSession.selectList(ns + "getBoardListByPageNum", map);
 	}
 	

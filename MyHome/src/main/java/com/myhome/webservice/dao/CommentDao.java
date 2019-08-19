@@ -20,6 +20,7 @@ public class CommentDao {
 		try {
 			sqlSession.insert(ns + "insertComment", comment);
 		}catch(Exception e) {
+			System.out.println(e);
 			return false;
 		}
 		return true;

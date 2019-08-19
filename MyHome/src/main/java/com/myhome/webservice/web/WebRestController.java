@@ -93,6 +93,7 @@ public class WebRestController {
     public List<Plan> getAllPlans(){
     	return planService.getAllPlans();
     }
+    
     @PostMapping("/insertPlan")
     public boolean insertPlan(@RequestBody Plan plan) {
     	return planService.insertPlan(plan);
@@ -132,8 +133,11 @@ public class WebRestController {
 	    	.b_category(Integer.parseInt((String)map.get("b_category")))
 	    	.b_content((String)map.get("b_content"))
 	    	.b_title((String)map.get("b_title"))
-	    	.b_writer((String)map.get("b_writer")).build();
+	    	.b_writer((String)map.get("b_writer"))
+	    	.b_wdate((String)map.get("b_wdate")).build();
+    	
     	List<String> attachments = (List)map.get("attachments");
+    	
     	System.out.println(board.toString());
     	System.out.println(attachments.toString());
     	return boardService.insertBoard(board, attachments);
@@ -144,6 +148,11 @@ public class WebRestController {
     	return boardService.getBoardByNum(b_number);
     }
     
+    @GetMapping("/getNoticeList")
+    public List<Board> getNoticeList() {
+    	return boardService.getNoticeList();
+    }
+    
     @GetMapping("/getBoardListByPage")
     public List<Board> getBoardListByPage(@RequestParam int page_num){
     	return boardService.getBoardsByPageNum(page_num);
@@ -151,11 +160,7 @@ public class WebRestController {
     
     @GetMapping("/getBoardTotalPageNum")
     public int getBoardTotalPageNum() {
-    	int pages = boardService.getTotalPageNum();
-    	if(pages % 20 > 0) {
-    		return (pages / 20) + 1;
-    	}
-    	return pages / 20;
+    	return boardService.getTotalPageNum();
     }
     
     @PutMapping("/updateBoard")
