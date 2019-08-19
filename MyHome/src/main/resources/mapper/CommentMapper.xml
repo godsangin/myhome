@@ -12,8 +12,10 @@
 		WHERE c_bnumber=#{b_number}
 	</select>
 	<insert id="insertComment" useGeneratedKeys="true" keyProperty="c_number">
+		UPDATE board SET b_comments = b_comments + 1 WHERE b_number = #{c_bnumber};
+		
 		INSERT INTO comment (c_writer, c_content, c_wdate, c_bnumber) VALUES
-		(#{c_writer}, #{c_content}, #{c_wdate}, #{c_bnumber})
+		(#{c_writer}, #{c_content}, #{c_wdate}, #{c_bnumber});
 	</insert>
 	<update id="updateComment">
 		UPDATE comment set c_content=#{c_content}, c_wdate=#{c_wdate}

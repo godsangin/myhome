@@ -23,16 +23,26 @@ public class BoardService {
 	@Autowired(required=true)
 	private AttachmentDao attachmentDao;
 	
+	private int limit = 15;
+	
 	public Board getBoardByNum(int b_number) {
 		return boardDao.getBoardByNum(b_number);
 	}
 	
+	public List<Board> getNoticeList(){
+		return boardDao.getNoticeList();
+	}
+	
 	public List<Board> getBoardsByPageNum(int page_num){
-		return boardDao.getBoardListByPageNum(page_num);
+		return boardDao.getBoardListByPageNum(page_num, limit);
 	}
 	
 	public int getTotalPageNum() {
-		return boardDao.getTotalPageNum();
+		int pages = boardDao.getTotalPageNum();
+		if(pages % limit > 0) {
+    		return (pages / limit) + 1;
+    	}
+    	return pages / limit;
 	}
 	public List<Attachment> getAttachmentsByPageNum(int page_num){
 		return attachmentDao.getAttachmentListByPageNum(page_num);
@@ -100,9 +110,6 @@ public class BoardService {
 	 * comments
 	 */
 	public boolean insertComment(Comment comment) {
-		if(!boardDao.updateCommentsByNum(comment.getC_bnumber())) {
-			return false;
-		}
 		return commentDao.insertComment(comment);
 	}
 	
