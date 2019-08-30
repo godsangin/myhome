@@ -169,7 +169,7 @@ public class WebRestController {
     }
     
     //like need
-    @DeleteMapping("/deleteBoardByNum")
+    @PostMapping("/deleteBoardByNum")
     public boolean deleteBoardByNum(@RequestBody int b_number) {
     	return boardService.deleteBoardByNum(b_number);
     }
