@@ -115,8 +115,8 @@ public class WebRestController {
     }
     
     @PostMapping("/deletePlan")
-    public boolean deletePlan(@RequestBody int p_number) {
-    	return planService.deletePlanByNum(p_number);
+    public boolean deletePlan(@RequestBody Map<String, Object> map) {
+    	return planService.deletePlanByNum((Integer)map.get("p_number"));
     }
     
     /**
