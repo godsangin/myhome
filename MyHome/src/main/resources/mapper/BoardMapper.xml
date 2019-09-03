@@ -36,6 +36,8 @@
 		FROM board where b_category = '1'
 	</select>
 	<select id="insertBoard" resultType="int">
+		UPDATE user set u_boards=u_boards+1
+		WHERE u_mail=#{b_writer};
 <!-- 		<insert> -->
 		INSERT INTO board (b_title, b_content, b_writer, b_category, b_wdate) VALUES
 		(#{b_title}, #{b_content}, #{b_writer}, #{b_category}, #{b_wdate});
