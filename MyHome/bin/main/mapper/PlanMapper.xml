@@ -16,11 +16,11 @@
 		WHERE s_date between #{m_start} AND #{m_end} OR e_date between #{m_start} AND #{m_end}
 	</select>
 	<insert id="insertPlan" useGeneratedKeys="true" keyProperty="p_number">
-		INSERT INTO plan (p_number, p_title, p_sdate, p_edate, p_content) VALUES
-		(#{p_number}, #{p_title}, #{p_sdate}, #{p_edate}, #{p_content})
+		INSERT INTO plan (p_number, p_title, p_sdate, p_edate, p_content, p_color) VALUES
+		(#{p_number}, #{p_title}, #{p_sdate}, #{p_edate}, #{p_content}, #{p_color})
 	</insert>
 	<update id="updatePlan">
-		UPDATE plan set p_title=#{p_title}, p_sdate=#{p_sdate}, p_edate=#{p_edate}, p_content=#{p_content}
+		UPDATE plan set p_title=#{p_title}, p_sdate=#{p_sdate}, p_edate=#{p_edate}, p_content=#{p_content}, p_color=#{p_color}
 		WHERE p_number=#{p_number}
 	</update>
 	<delete id="deletePlanByNum">
